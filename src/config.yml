@@ -1,0 +1,30 @@
+# TimeJoin
+# By ShaneBee
+
+join-between:
+  # Utilizes 24 hour clock
+  # The time at which a player can join
+  start: 8
+  # The time at which a player can not join
+  stop: 23
+
+message:
+  # The message to send to a player when they try to get on
+  # Use <b> for a new line
+  cant-join: '&cThe server is currently closed'
+  # This is the message a player will receiving when the server is about to close
+  # <min> will be replaced with the kick-delay time
+  server-closing: 'The server will be shutting down in <min> minutes'
+
+settings:
+  log-to-console:
+    enabled: true
+    message: '&cKicked: &7<player> &cReason: &7The server is currently closed!'
+  timer:
+    # This is how often the timer will run (in minutes) to check if players need to be kicked
+    # At this time the player will be given a warning that the server is closing soon
+    # I recommend not touching this but if you want to disable this feature, set this to 0
+    repeat-delay: 5
+    # This is how long after warning to kick the player (give them time to prepare for closing)
+    # This should be AT LEAST 1 less than repeat-delay, if its greater it will reset to 1 less
+    kick-delay: 2

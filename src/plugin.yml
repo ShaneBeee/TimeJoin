@@ -1,0 +1,15 @@
+main: tk.shanebee.timejoin.TimeJoin
+name: TimeJoin
+version: 1.1.0
+
+commands:
+  timejoin:
+    permission: timejoin.command
+
+permissions:
+  timejoin.command:
+    description: Allows admins to use the '/timejoin reload' command
+    default: op
+  tiemjoin.canjoin:
+    description: Allows admins to join during off times
+    default: op
