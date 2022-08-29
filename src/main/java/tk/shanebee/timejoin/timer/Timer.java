@@ -12,14 +12,15 @@ import java.util.Date;
 public class Timer extends BukkitRunnable {
 
 	private int kick_delay;
-	private String closing_message;
+	private final String closing_message;
 
 	public Timer() {
 		int repeat_delay = TimeJoin.plugin.getTimeConfig().TIMER_REPEAT_DELAY;
 		this.kick_delay = TimeJoin.plugin.getTimeConfig().TIMER_KICK_DELAY;
 		if (kick_delay >= repeat_delay) kick_delay = repeat_delay - 1;
 		this.closing_message = TimeJoin.plugin.getTimeConfig().TIMER_CLOSING_MESSAGE;
-		this.runTaskTimer(TimeJoin.plugin, 20 * 60 * repeat_delay, 20 * 60 * repeat_delay);
+        int delay = 20 * 60 * repeat_delay;
+		this.runTaskTimer(TimeJoin.plugin, delay, delay);
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class Timer extends BukkitRunnable {
 						public void run() {
 							player.kickPlayer(Utils.getKickMessage());
 						}
-					}.runTaskLater(TimeJoin.plugin, 20 * 60 * kick_delay);
+					}.runTaskLater(TimeJoin.plugin, 20L * 60 * kick_delay);
 				}
 			}
 		}
